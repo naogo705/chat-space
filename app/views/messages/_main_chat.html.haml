@@ -2,39 +2,25 @@
   .main-chat__group-top
     .main-chat__group-top__group-info
       .main-chat__group-top__group-info__group-name
-        techcamp
+        = @group.name
       %ul.main-chat__group-top__group-info__member-list
         Member：
         %li.main-chat__group-top__group-info__member-list__member
-          masa
-    = link_to "#", class: "edit-btn" do
-      Edit
+          -@group.users.each do |user|
+            = user.nickname
+         
+    = link_to "Edit", edit_group_path(@group), class: "edit-btn" 
+      
   .main-chat__message-list
-    .main-chat__message-list__group-message
-      .main-chat__message-list__group-message__list
-        .main-chat__message-list__group-message__list__name
-          techcamp
-        .main-chat__message-list__group-message__list__dateinfo
-          2020/06/08(mon) 12:42:01
-      .main-chat__message-list__group-message__message
-        まだメッセージがありません。
-    .main-chat__message-list__group-message
-      .main-chat__message-list__group-message__list
-        .main-chat__message-list__group-message__list__name
-          techcamp
-        .main-chat__message-list__group-message__list__dateinfo
-          2020/06/08(mon) 12:42:01
-      .main-chat__message-list__group-message__message
-        まだメッセージがありません。
+    = render @messages
   .main-chat__form
-    %form.main-chat__form__new-message
-      .main-chat__form__new-message__message-contents
-        %input.main-chat__form__new-message__message-contents__message{type: "text", placeholder: "type a message"}
-          %label.inputimage
-            = icon('far', 'image', class: "icon-image")
-            %input{class: "Hidden", type: "file"}
-      %input.main-chat__form__new-message__submit-btn{type: "submit", value: "Send"}
-
+    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
+      .message-contents
+        = f.text_field :content, class: 'message', placeholder: 'type a message'
+        = f.label :image, class: 'inputimage' do
+          = icon('far', 'image', class: 'icon-image')
+          = f.file_field :image, class: "Hidden"
+      = f.submit 'Send', class: 'submit-btn'
 
 
 
