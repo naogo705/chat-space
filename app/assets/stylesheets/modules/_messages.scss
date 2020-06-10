@@ -47,7 +47,7 @@
         padding: 35px 40px 0;
           &__group-message{
             margin-bottom: 46px;
-              &__message{
+              .message{
                 margin-top: 12px;
                 font-size: 14px;
                 color: #434A54;
@@ -71,13 +71,13 @@
         background-color: #d2d2d2;
         height: 90px;
         padding: 20px 50px 20px 40px;
-        &__new-message{
+        .new-message{
           display: flex;
           justify-content: space-between;
-          &__message-contents{
+          .message-contents{
             position: relative;
             width: 100%;
-            &__message{
+            .message{
               width: 100%;
               border: none;
               height: 50px;
@@ -95,7 +95,7 @@
               display: none;
             }
           }
-          &__submit-btn{
+          .submit-btn{
             border: none;
             background-color: #38AEF0;
             color: #fff;
@@ -141,14 +141,15 @@
         height: calc(100vh - 100px);
         padding: 0 20px;
           .Group{
-            color: #fff;
             padding: 20px 0 40px;
               &__name{
                 font-size: 15px;
                 margin-bottom: 5px;
+                color: #fff;
               }
               &__message{
                 font-size: 11px;
+                color: #fff;
               }
           }
       }
