@@ -142,15 +142,18 @@
         padding: 0 20px;
           .Group{
             padding: 20px 0 40px;
-              &__name{
-                font-size: 15px;
-                margin-bottom: 5px;
-                color: #fff;
+              .group-link{
+                text-decoration: none;
               }
-              &__message{
-                font-size: 11px;
-                color: #fff;
-              }
+                &__name{
+                  font-size: 15px;
+                  margin-bottom: 5px;
+                  color: #fff;
+                }
+                &__message{
+                  font-size: 11px;
+                  color: #fff;
+                }
           }
       }
   }
