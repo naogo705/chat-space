@@ -45,6 +45,7 @@
         background-color: #fafafa;
         height: calc(100vh - 190px);
         padding: 35px 40px 0;
+        overflow: scroll;
           &__group-message{
             margin-bottom: 46px;
               .message{
