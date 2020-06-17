@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
     if ( message.image ) {
-      let html = `<div class="main-chat__message-list__group-message">
+      let html = `<div class="main-chat__message-list__group-message" data-message-id=${message.id}>
                     <div class="main-chat__message-list__group-message__list">
                       <div class="main-chat__message-list__group-message__list__name">
                         ${message.user_nickname}
@@ -19,7 +19,7 @@ $(function(){
                 </div>`
               return html;
     } else {
-      let html = `<div class="main-chat__message-list__group-message">
+      let html = `<div class="main-chat__message-list__group-message" data-message-id=${message.id}>
                     <div class="main-chat__message-list__group-message__list">
                       <div class="main-chat__message-list__group-message__list__name">
                         ${message.user_nickname}
@@ -59,6 +59,7 @@ $(function(){
     })
     .fail(function() {
       alert('メッセージ送信に失敗しました');
+      $(".submit-btn").prop("disabled", false);
     });
   });
 });
